@@ -1,0 +1,33 @@
+
+:root {
+	--mainColor: #003344;
+	--altColor: #002211;
+	--textColor: #ccc;
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	background-color: var(--mainColor);
+}
+
+/* ------ Start Header ------ */
+
+header {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.logo a{
+		color: var(--textColor);
+	}
+}
