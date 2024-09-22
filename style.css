@@ -1,8 +1,9 @@
 
 :root {
 	--mainColor: #003344;
-	--altColor: #002211;
+	--altColor: #eec43b;
 	--textColor: #ccc;
+	--transition: all 0.3s ease;
 }
 * {
 	box-sizing: border-box;
@@ -16,18 +17,91 @@ a {
 }
 
 body {
-	background-color: var(--mainColor);
+	background-color: var(--altColor);
+	font-family: "poppins", sans-serif;
+	overflow: hidden;
+}
+.container {
+	padding: 0 13%;
 }
 
 /* ------ Start Header ------ */
 
 header {
 	width: 100%;
-	height: 40px;
+	height: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	background-color: var(--mainColor);
+	padding: 15px 13%;
+	position: relative;
 	.logo a{
 		color: var(--textColor);
+		font-size: 30px;
+	}
+	.menu-btn {
+		width: 30px;
+		height: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+		span {
+			width: 100%;
+			height: 3px;
+			background-color: white;
+			border-radius: 8px;
+		}
+	}
+}
+@media (max-width: 767px) {
+	header {
+		padding: 15px 8%;
+	}
+	header nav {
+		position: absolute;
+		top: 45px;
+		right: -100%;
+		width: 100%;
+		height: 100vh;
+		text-align: center;
+		background-color: var(--mainColor);
+		transition: all 0.3s ease;
+		&.show {
+			right: 0;
+		}
+		li {
+			margin-top: 50px;
+			a {
+				color: var(--textColor);
+				font-size: 30px;
+				transition: all .3s ease;
+				&:hover {
+					color: var(--altColor);
+				}
+			}
+		}
+	}
+}
+/* --------- media Query ----------- */
+@media (min-width: 767px) {
+	header nav ul {
+		display: flex;
+		align-items: center;
+		li {
+			margin-left: 20px;
+			a {
+				color: var(--textColor);
+				transition: var(--transition);
+				&:hover {
+					color: var(--altColor);
+				}
+			}
+		}	
+	}
+	header .menu-btn {
+		display: none;
 	}
 }
