@@ -57,7 +57,7 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	background-color: var(--mainColor);
-	padding: 15px 13%;
+	padding: 12px 13%;
 	position: relative;
 	border-bottom: 1px solid var(--textColor);
 	.logo a{
@@ -97,21 +97,6 @@ header {
 			margin-left: 20px;
 			color: var(--textColor);
 			cursor: pointer;
-		}
-	}
-	.menu-btn {
-		width: 30px;
-		height: 30px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: space-between;
-		cursor: pointer;
-		span {
-			width: 100%;
-			height: 3px;
-			background-color: white;
-			border-radius: 8px;
 		}
 	}
 }
@@ -186,10 +171,9 @@ header {
 /* ------- Start Services Section  ------- */
 
 .services {
-	height: 100vh;
 	.boxes{
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(3, minmax(200px , 350px));
 		column-gap: 25px;
 		margin-top: 30px;
 		.box {
@@ -248,13 +232,13 @@ header {
 /* ------- Start Contact Section ------- */
 .contact{
 	background-color: var(--textColor);
-	min-height: 100vh;
+	/* height: 100vh; */
 	.form-container{
     form{
 			display: flex;
 			align-items: center;
 			flex-direction: column;
-			width: 850px;
+			/* width: 850px; */
 			margin: 0 auto;
 			div {
 				margin: 7px 0;
@@ -297,6 +281,41 @@ header {
 	}
 }
 /* ------- End Contact Section ------- */
+/* ------- Start About Section ------- */
+.about {
+	text-align: center;
+	.about-content {
+		max-width: 650px;
+		margin: 10px auto;
+		padding: 20px;
+		h3 {
+			font-size: 25px;
+			margin: 15px 0;
+			color: #333;
+		}
+		p {
+			color: #777;
+			line-height: 1.5;
+		}
+		.social-media {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 200px;
+			margin: 40px auto;
+			i {
+				font-size: 30px;
+				color: var(--mainColor);
+				cursor: pointer;
+				transition: var(--transition);
+				&:hover {
+					scale: 1.2;
+				}
+			}
+		}
+	}
+}
+/* ------- End About Section ------- */
 
 
 
@@ -304,32 +323,14 @@ header {
 	header {
 		padding: 15px 8%;
 	}
-	header nav {
-		position: absolute;
-		top: 45px;
-		right: -100%;
-		width: 100%;
-		height: 100vh;
-		text-align: center;
-		background-color: var(--mainColor);
-		transition: all 0.3s ease;
-		&.show {
-			right: 0;
-		}
-		li {
-			margin-top: 50px;
-			a {
-				color: var(--textColor);
-				font-size: 30px;
-				transition: all .3s ease;
-				&:hover {
-					color: var(--altColor);
-				}
-			}
-		}
-	}
 	.container {
 		padding: 0 8%; 
+	}
+	.heading-title {
+		font-size: 45px;
+	}
+	section {
+		height: auto;
 	}
 	.hero {
 		.content{
@@ -342,12 +343,67 @@ header {
 			}
 		}
 	}
-	
+	.services .boxes {
+		grid-template-columns: 1fr;
+	}
 }
 /* --------- media Query ----------- */
 @media (max-width: 991px) {
-	header .menu-btn {
+	.conainer {
+		padding: 0 10%;
+	}
+	header {
+		padding: 0 10%;
+	}
+	header .search-form input {
 		display: none;
+	}
+	header nav {
+		position: absolute;
+		top: 50px;
+		right: -100%;
+		width: 0;
+		height: 100vh;
+		text-align: center;
+		background-color: var(--mainColor);
+		transition: all 0.3s ease;
+		&.show {
+			right: 0;
+			width: 100%;
+			z-index: 100;
+		}
+		ul {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			li {
+				margin-top: 50px;
+				a {
+					color: var(--textColor);
+					font-size: 30px;
+					transition: all .3s ease;
+					&:hover {
+						color: var(--altColor);
+					}
+				}
+			}
+		}
+		
+	}
+	.menu-btn {
+		width: 30px;
+		height: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+		span {
+			width: 100%;
+			height: 3px;
+			background-color: white;
+			border-radius: 8px;
+		}
 	}
 	.services .boxes{
 		grid-template-columns: repeat(2, 1fr);

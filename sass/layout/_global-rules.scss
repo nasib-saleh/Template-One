@@ -1,0 +1,47 @@
+:root {
+	--mainColor: #003344;
+	--altColor: #eec43b;
+	--textColor: #ccc;
+	--transition: all 0.3s ease;
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+section {
+	padding: 30px 0; 
+	width: 100%;
+}
+a {
+	text-decoration: none;
+}
+
+body {
+	font-family: "poppins", sans-serif;
+}
+.container {
+	padding: 0 13%;
+}
+.heading-title {
+	font-size: 60px;
+	color: var(--mainColor);
+	text-transform: uppercase;
+	position: relative;
+	width: fit-content;
+	margin: 30px auto 40px;
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: -10px;
+		left: 0;
+		width: 0;
+		height: 10px;
+		background-color: var(--altColor);
+		transition: var(--transition);
+	}
+	&:hover::before {
+		width: 100%;
+	}
+}
